@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  <title>CV Generator</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1>CV Database Profile List</h1>
+    <hr>
+    {% for detail in details %}
+      <div class="row">
+        <div class="col-md-8">
+          <h3>{{ detail.name | title }}'s CV</h3>
+        </div>
+        <div class="col-md-4 text-right">
+          <a href="{% url 'resume' detail.id %}" class="btn btn-primary">Download CV</a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
